@@ -34,12 +34,14 @@ function matchCities(userSearch, cities) {
 function displayCities() {
   const matchArray = matchCities(this.value, cities);
   const html = matchArray.map(location => {
+    const regex = new RegExp(this.value, 'gi');
+    const cityName = location.city.replace(regex, `<span class="hl">${this.value}</span>`);
     return `
       <li>
-        <span class="name">${location.city}, ${location.state}</span>
+        <span class="name">${cityName}, ${location.state}</span>
         <span class="population">${location.population}</span>
       </li>
-    `
+    `;
   }).join('');
   suggestions.innerHTML = html;
 }
