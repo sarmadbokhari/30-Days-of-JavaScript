@@ -7,6 +7,42 @@
 <body>
 <canvas id="draw"></canvas>
 <script>
+  const canvas   = document.querySelector('#draw');
+  const context  = canvas.getContext('2d');
+  // set width and height of canvas to full window w&h
+  canvas.width   = window.innerWidth;
+  canvas.height  = window.innerHeight;
+
+  context.strokeStyle = '#F15B41';
+  context.lineJoin    = 'round';
+  context.lineCap     = 'round';
+  context.lineWidth   = 100;
+
+  let isDrawing = false;
+  let lastX     = 0;
+  let lastY     = 0;
+  let hue       = 0;
+  let direction = true;
+
+  function draw(e) {
+    if (!isDrawing) { return; } // stop fx if user hasn't clicked down to draw
+    console.log(e);
+  }
+
+  canvas.addEventListener('mousedown', (e) => {
+    isDrawing = true;
+
+    lastX = e.offsetX;
+    lastY = e.offsetY;
+  });
+
+  // draw to canvas on mousdown
+  canvas.addEventListener('mousemove', draw);
+
+  // disable draw() on mousup or mouseout
+  canvas.addEventListener('mouseup', () => isDrawing = false);
+  canvas.addEventListener('mouseout', () => isDrawing = false);
+
 </script>
 
 <style>
