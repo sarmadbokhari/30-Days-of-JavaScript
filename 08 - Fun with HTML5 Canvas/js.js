@@ -7,7 +7,11 @@ canvas.height  = window.innerHeight;
 context.strokeStyle = '#F15B41';
 context.lineJoin    = 'round';
 context.lineCap     = 'round';
-context.lineWidth   = 100;
+context.lineWidth   = 500;
+// context.globalCompositeOperation = 'difference'; // wow!
+// context.globalCompositeOperation = 'hue';
+// context.globalCompositeOperation = 'luminosity';
+context.globalCompositeOperation = 'saturation';
 
 let isDrawing = false;
 let lastX     = 0;
@@ -36,7 +40,7 @@ function draw(e) {
   }
 
   // switch up size of lineWidth increment/decrement after reaching 100 and 1
-  if (context.lineWidth >= 100 || context.lineWidth <= 1) {
+  if (context.lineWidth >= 500 || context.lineWidth <= 100) {
     direction = !direction;
   }
 
