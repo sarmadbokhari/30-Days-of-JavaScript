@@ -20,7 +20,15 @@ body {
   font-size: 20rem;
   margin: 0;
   color:white;
-  text-shadow:4px 4px 0 rgba(0,0,0,0.05);
+  text-shadow:4px 4px 0 rgba(0,0,0,0.15);
+}
+
+@media only screen
+  and (max-device-width: 736px) {
+
+  .display__time-left {
+    font-size: 10rem;
+  }
 }
 
 .timer {
@@ -79,4 +87,5 @@ body {
 .display__end-time {
   font-size: 4rem;
   color:white;
+  text-shadow:4px 4px 0 rgba(0,0,0,0.05);
 }
